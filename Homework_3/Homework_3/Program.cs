@@ -2,9 +2,16 @@
 
 namespace Homework_3
 {
-    class Program
+    /// <summary>
+    /// Main Program.
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Homework 3.
+        /// </summary>
+        /// <param name="args">console call params.</param>
+        public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
         }
