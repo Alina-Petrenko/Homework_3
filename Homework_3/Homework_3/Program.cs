@@ -45,16 +45,41 @@ namespace Homework_3
             {
                 if (array[i] % 2 == 0)
                 {
-                    evenArray[j] = array[i];
+                    int number = array[i];
+                    evenArray[j] = number;
                     j++;
                 }
                 else
                 {
-                    oddArray[k] = array[i];
+                    int number = array[i];
+                    oddArray[k] = number;
                     k++;
                 }
             }
 
+            string evenAplphabet = string.Empty;
+            string oddAplphabet = string.Empty;
+            string alphabet = "abcdefghijklmnopqrstuvwxyz";
+            for (int i = 0; i < evenArray.Length; i++)
+            {
+                int number = evenArray[i];
+                if (alphabet[number - 1].ToString() == "a" || alphabet[number - 1].ToString() == "e" || alphabet[number - 1].ToString() == "i" || alphabet[number - 1].ToString() == "d" || alphabet[number - 1].ToString() == "h")
+                {
+                    evenAplphabet += alphabet[number - 1].ToString().ToUpper();
+                }
+                else
+                {
+                    evenAplphabet += alphabet[number - 1];
+                }
+            }
+
+            for (int i = 0; i < oddArray.Length; i++)
+            {
+                int number = oddArray[i];
+                oddAplphabet += alphabet[number - 1];
+            }
+
+            Console.WriteLine(evenAplphabet);
             Console.WriteLine("even");
             foreach (int i in evenArray)
             {
