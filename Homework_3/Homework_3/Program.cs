@@ -13,10 +13,10 @@ namespace Homework_3
         /// <param name="args">console call params.</param>
         public static void Main(string[] args)
         {
-            Console.WriteLine("Please, write rang of array");
-            int value = int.Parse(Console.ReadLine());
-            int[] array = new int[value];
-            Random rand = new Random();
+            Console.WriteLine("Please, write array length");
+            int arrayLength = int.Parse(Console.ReadLine());
+            int[] array = new int[arrayLength];
+            Random rand = new ();
             int even = 0, odd = 0;
             for (int i = 0; i < array.Length; i++)
             {
@@ -31,66 +31,76 @@ namespace Homework_3
                 }
             }
 
-            Console.WriteLine("array");
-            foreach (int i in array)
-            {
-                Console.WriteLine(i);
-            }
-
             int[] evenArray = new int[even];
             int[] oddArray = new int[odd];
-            int j = 0;
-            int k = 0;
+            int evenCount = 0;
+            int oddCount = 0;
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] % 2 == 0)
                 {
                     int number = array[i];
-                    evenArray[j] = number;
-                    j++;
+                    evenArray[evenCount] = number;
+                    evenCount++;
                 }
                 else
                 {
                     int number = array[i];
-                    oddArray[k] = number;
-                    k++;
+                    oddArray[oddCount] = number;
+                    oddCount++;
                 }
             }
 
-            string evenAplphabet = string.Empty;
-            string oddAplphabet = string.Empty;
             string alphabet = "abcdefghijklmnopqrstuvwxyz";
+            int evenUpper = 0;
+            string evenAplphabet = string.Empty;
             for (int i = 0; i < evenArray.Length; i++)
             {
                 int number = evenArray[i];
-                if (alphabet[number - 1].ToString() == "a" || alphabet[number - 1].ToString() == "e" || alphabet[number - 1].ToString() == "i" || alphabet[number - 1].ToString() == "d" || alphabet[number - 1].ToString() == "h")
+                string letter = alphabet[number - 1].ToString();
+                if (letter == "a" || letter == "e" || letter == "i" || letter == "d" || letter == "h")
                 {
-                    evenAplphabet += alphabet[number - 1].ToString().ToUpper();
+                    evenAplphabet += letter.ToUpper();
+                    evenUpper++;
                 }
                 else
                 {
-                    evenAplphabet += alphabet[number - 1];
+                    evenAplphabet += letter;
                 }
             }
 
+            int oddUpper = 0;
+            string oddAplphabet = string.Empty;
             for (int i = 0; i < oddArray.Length; i++)
             {
                 int number = oddArray[i];
-                oddAplphabet += alphabet[number - 1];
+                string letter = alphabet[number - 1].ToString();
+                if (letter == "a" || letter == "e" || letter == "i" || letter == "d" || letter == "h")
+                {
+                    oddAplphabet += letter.ToUpper();
+                    oddUpper++;
+                }
+                else
+                {
+                    oddAplphabet += letter;
+                }
             }
 
-            Console.WriteLine(evenAplphabet);
-            Console.WriteLine("even");
-            foreach (int i in evenArray)
+            if (evenUpper > oddUpper)
             {
-                Console.WriteLine(i);
+                Console.WriteLine("In upper case more even values: " + evenUpper);
+            }
+            else if (evenUpper < oddUpper)
+            {
+                Console.WriteLine("In upper case more odd values: " + oddUpper);
+            }
+            else
+            {
+                Console.WriteLine("Equals values in upper case");
             }
 
-            Console.WriteLine("odd");
-            foreach (int i in oddArray)
-            {
-                Console.WriteLine(i);
-            }
+            Console.WriteLine("Even array: ", string.Join(" ", evenAplphabet));
+            Console.WriteLine("Odd array: ", string.Join(" ", oddAplphabet));
         }
     }
 }
