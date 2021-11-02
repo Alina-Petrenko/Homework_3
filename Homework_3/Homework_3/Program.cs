@@ -88,19 +88,31 @@ namespace Homework_3
 
             if (evenUpper > oddUpper)
             {
-                Console.WriteLine("In upper case more even values: " + evenUpper);
+                Console.WriteLine("There are more even values in upper case: " + evenUpper);
             }
             else if (evenUpper < oddUpper)
             {
-                Console.WriteLine("In upper case more odd values: " + oddUpper);
+                Console.WriteLine("There are more odd values in upper case: " + oddUpper);
             }
             else
             {
                 Console.WriteLine("Equals values in upper case");
             }
 
-            Console.WriteLine("Even array: ", string.Join(" ", evenAplphabet));
-            Console.WriteLine("Odd array: ", string.Join(" ", oddAplphabet));
+            string evenResult = string.Empty;
+            for (int i = 0; i < evenAplphabet.Length; i++)
+            {
+                evenResult += evenAplphabet[i] + " ";
+            }
+
+            string oddResult = string.Empty;
+            for (int i = 0; i < oddAplphabet.Length; i++)
+            {
+                oddResult += oddAplphabet[i] + " ";
+            }
+
+            Console.WriteLine("Even array: " + evenResult);
+            Console.WriteLine("Odd array: " + oddResult);
         }
     }
 }
